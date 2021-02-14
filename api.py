@@ -10,42 +10,53 @@ GPIO.setup(6,GPIO.OUT)
 GPIO.setup(13,GPIO.OUT)
 GPIO.setup(19,GPIO.OUT)
 GPIO.setup(26,GPIO.OUT)
+GPIO.setup(0,GPIO.OUT)
+GPIO.setup(5,GPIO.OUT)
 
 def reset():
+    GPIO.output(0,GPIO.HIGH)
+    GPIO.output(5,GPIO.LOW)
     GPIO.output(6,GPIO.LOW)
     GPIO.output(13,GPIO.LOW)
     GPIO.output(19,GPIO.LOW)
-    GPIO.output(26,GPIO.LOW)
-    sleep(0)
+    GPIO.output(26,GPIO.HIGH)
+    sleep(2)
     
 def forward():
+    GPIO.output(0,GPIO.HIGH)
+    GPIO.output(5,GPIO.LOW)
     GPIO.output(6,GPIO.HIGH)
-    GPIO.output(13,GPIO.LOW)
-    GPIO.output(19,GPIO.HIGH)
-    GPIO.output(26,GPIO.LOW)
-    sleep(0)
+    GPIO.output(13,GPIO.HIGH)
+    GPIO.output(19,GPIO.LOW)
+    GPIO.output(26,GPIO.HIGH)
+    sleep(1)
     
 def backward():
+    GPIO.output(0,GPIO.HIGH)
+    GPIO.output(5,GPIO.HIGH)
     GPIO.output(6,GPIO.LOW)
-    GPIO.output(13,GPIO.HIGH)
-    GPIO.output(19,GPIO.LOW)
+    GPIO.output(13,GPIO.LOW)
+    GPIO.output(19,GPIO.HIGH)
     GPIO.output(26,GPIO.HIGH)
-    sleep(0)
+    sleep(1)
     
 def left():
-    GPIO.output(6,GPIO.HIGH)
-    GPIO.output(13,GPIO.LOW)
-    GPIO.output(19,GPIO.LOW)
-    GPIO.output(26,GPIO.HIGH)
-    sleep(0)
-
-def right():
+    GPIO.output(0,GPIO.HIGH)
+    GPIO.output(5,GPIO.HIGH)
     GPIO.output(6,GPIO.LOW)
     GPIO.output(13,GPIO.HIGH)
+    GPIO.output(19,GPIO.LOW)
+    GPIO.output(26,GPIO.HIGH)
+    sleep(1)
+
+def right():
+    GPIO.output(0,GPIO.HIGH)
+    GPIO.output(5,GPIO.LOW)
+    GPIO.output(6,GPIO.HIGH)
+    GPIO.output(13,GPIO.LOW)
     GPIO.output(19,GPIO.HIGH)
-    GPIO.output(26,GPIO.LOW)
-    sleep(0)
-    
+    GPIO.output(26,GPIO.HIGH)
+    sleep(1)
 #https://qmoki89va7.execute-api.us-east-2.amazonaws.com/test/key?up=h&down=b&left=l&right=r
 
 #camera = PiCamera()
